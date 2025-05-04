@@ -11,7 +11,7 @@ const LandingPage = () => {
         <header className="w-full max-w-4xl mx-auto flex justify-between items-center mb-12">
           <h1 className="text-3xl font-bold tracking-wide">SoulTyped</h1>
           <nav className="space-x-6 text-lg">
-            <a href="#" className="hover:text-pink-300 transition">
+            <a href="/letters" className="hover:text-pink-300 transition">
               Letters
             </a>
             <a href="#" className="hover:text-pink-300 transition">
@@ -30,7 +30,7 @@ const LandingPage = () => {
             touched, one word at a time.
           </p>
           <a
-            href="#"
+            href="/letters"
             className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg"
           >
             Check out Letters
