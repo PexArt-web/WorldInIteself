@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Letters = () => {
   return (
@@ -13,12 +14,13 @@ const Letters = () => {
         <header className="w-full max-w-4xl mx-auto flex justify-between items-center mb-12">
           <h1 className="text-3xl font-bold tracking-wide">World In ItSelf</h1>
           <nav className="space-x-6 text-lg">
-            {/* <a href="#" className="hover:text-pink-300 transition">
-              Letters
-            </a> */}
-            <a href="about" className="hover:text-pink-300 transition">
+            <Link to="/" className="hover:text-pink-300 transition">
+              Home
+            </Link>
+
+            <Link to="/about" className="hover:text-pink-300 transition">
               About
-            </a>
+            </Link>
           </nav>
         </header>
 
@@ -26,14 +28,8 @@ const Letters = () => {
           <h2 className="text-4xl font-bold mb-6">Messages From the Heart</h2>
           <p className="text-lg mb-8">
             Explore heartwarming love letters, uplifting good morning wishes,
-            and soothing goodnight notes — all crafted to inspire and connect.
+            and soothing goodnight notes , all crafted to inspire and connect.
           </p>
-          {/* <a
-            href="#"
-            className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg"
-          >
-            Read a Message
-          </a> */}
         </main>
 
         <section className="w-full max-w-5xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
@@ -72,7 +68,7 @@ const Letters = () => {
           </div>
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-2">
-            🎂 Birthday Wishes and Messages
+              🎂 Birthday Wishes and Messages
             </h3>
             <p className="text-sm text-white/80">
               send warm thoughts and good vibes to someone on their special day!
@@ -81,23 +77,25 @@ const Letters = () => {
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-2">👨‍👧‍👦 Fatherhood</h3>
             <p className="text-sm text-white/80">
-            Sharing words of wisdom, love, and appreciation for fathers. To reflect joys, challenges, and importance of a father's role.
-
+              Sharing words of wisdom, love, and appreciation for fathers. To
+              reflect joys, challenges, and importance of a father's role.
             </p>
           </div>
-          
+
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-2">👩‍👧‍👦 Motherhood</h3>
             <p className="text-sm text-white/80">
-            All about celebrating the love, strength, and unique experiences of mothers. To capture the beauty and challenges of raising children.
-
+              All about celebrating the love, strength, and unique experiences
+              of mothers. To capture the beauty and challenges of raising
+              children.
             </p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-2">✨📜 Poems</h3>
             <p className="text-sm text-white/80">
-            Heartfelt rhymes that might suit the moment and also soothe your soul.
+              Heartfelt rhymes that might suit the moment and also soothe your
+              soul.
             </p>
           </div>
         </section>
