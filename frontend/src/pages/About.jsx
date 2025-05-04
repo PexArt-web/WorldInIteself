@@ -3,7 +3,7 @@
 const About = () => {
   return (
     <div>
-      <h1>Coming soon</h1>
+      <h1 className="flex justify-center mt-9 font-bold text-3xl">Coming soon ...</h1>
     </div>
   )
 }
