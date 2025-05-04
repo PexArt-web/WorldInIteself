@@ -1,3 +1,4 @@
+import About from "./pages/About";
 import LandingPage from "./pages/LandingPage"
 import Letters from "./pages/Letters/Letters"
 
@@ -14,6 +15,8 @@ function App() {
       <Route path="/" >
         <Route index element={<LandingPage />} />
         <Route path="letters" element={<Letters />} />
+        
+        <Route path="about" element={<About />} />
       </Route>
     )
   )

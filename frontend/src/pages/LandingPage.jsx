@@ -9,12 +9,13 @@ const LandingPage = () => {
     >
       <div className="bg-black/0 bg-opacity-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
         <header className="w-full max-w-4xl mx-auto flex justify-between items-center mb-12">
-          <h1 className="text-3xl font-bold tracking-wide">SoulTyped</h1>
+          {/* <h1 className="text-3xl font-bold tracking-wide">SoulTyped</h1> */}
+          <h1 className="text-3xl font-bold tracking-wide mb-10">World In ItSelf</h1>
           <nav className="space-x-6 text-lg">
-            <a href="/letters" className="hover:text-pink-300 transition">
+            <a href="letters" className="hover:text-pink-300 transition">
               Letters
             </a>
-            <a href="#" className="hover:text-pink-300 transition">
+            <a href="about" className="hover:text-pink-300 transition">
               About
             </a>
           </nav>
