@@ -40,9 +40,9 @@ const About = () => {
 
         <div className="text-md max-w-2xl space-y-6 text-white/85">
           <p>
-            ✍🏽 <span className="font-semibold">Words by Toquieso</span>
+            ✍🏽 <span className="font-semibold">Words by Toqieso</span>
             <br />A lover of love, storyteller by heart, and pen behind the
-            passion. Toquieso writes from the soul for anyone who still believes
+            passion. Toqieso writes from the soul for anyone who still believes
             in the timeless magic of love notes.
           </p>
 
