@@ -1,35 +1,20 @@
+import SharedButton from "@/Shared/SharedButton";
 import { useState } from "react";
+import { Form, useActionData, useNavigation } from "react-router-dom";
 
-const Inkspace = () => {
+const InkSpace = () => {
+  const actionData = useActionData();
+  const navigation = useNavigation();
   const [formData, setFormData] = useState({
     title: "",
     category: "",
     content: "",
+    author: ""
   });
 
   const handleChange = (e) => {
-    alert("e.target.name: " + e.target.value);
+    // alert("e.target.name: " + e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await fetch("/api/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-      console.log("Saved:", data);
-      alert("Post submitted successfully!");
-      setFormData({ title: "", category: "", content: "" });
-    } catch (err) {
-      console.error("Error posting:", err);
-      alert("Failed to post.");
-    }
   };
 
   return (
@@ -41,8 +26,8 @@ const Inkspace = () => {
       }}
     >
       <div className="max-w-2xl mx-auto bg-black/60 p-8 rounded-xl backdrop-blur-md shadow-2xl">
-        <h2 className="text-3xl font-bold mb-6 text-center">🖋️ Inkspace</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <h2 className="text-3xl font-bold mb-6 text-center">🖋️ InkSpace</h2>
+        <Form method="post" className="space-y-4">
           <input
             type="text"
             name="title"
@@ -77,17 +62,41 @@ const Inkspace = () => {
             required
           />
 
+          <input
+            type="text"
+            name="author"
+            placeholder="crafted by"
+            className="w-full p-3 rounded bg-white/10 placeholder-white/70"
+            value={formData.author}
+            onChange={handleChange}
+            required
+          />
 
-          <button
-            type="submit"
-            className="w-full bg-pink-500 hover:bg-pink-600 transition p-3 rounded font-semibold"
-          >
-            Submit
-          </button>
-        </form>
+          <SharedButton
+            type={"submit"}
+            className={
+              "w-full bg-pink-500 hover:bg-pink-600 transition p-3 rounded font-semibold"
+            }
+            disabled={navigation.state === "submitting"}
+            label={navigation.state === "submitting" ? "Submitting..." : "Submit"}
+          />
+
+          {actionData?.error && (
+            <p style={{ color: "red" }} className="text-center mt-2">
+              {actionData.error === "Error: read ECONNRESET"
+                ? "Please check your network connection and try again"
+                : actionData.error}
+            </p>
+          )}
+          {actionData?.data?.message && (
+            <p style={{ color: "green" }} className="text-center mt-2">
+              {actionData.data.message}
+            </p>
+          )}
+        </Form>
       </div>
     </div>
   );
 };
 
-export default Inkspace;
+export default InkSpace;
