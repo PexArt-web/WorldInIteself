@@ -1,6 +1,6 @@
 export const AuthorWrite = async (title, category, content, author) => {
     try {
-        const response = await fetch("http://localhost:4000/api/author-write", {
+        const response = await fetch("https://worldiniteself.onrender.com/api/author-write", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -14,7 +14,6 @@ export const AuthorWrite = async (title, category, content, author) => {
         return data;
     }
     catch (error) {
-        console.log("Error in AuthorWrite:", error.message);
         throw Error(error)
     }
 }
