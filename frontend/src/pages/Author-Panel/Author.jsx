@@ -1,5 +1,5 @@
 import SharedButton from "@/Shared/SharedButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 
 const InkSpace = () => {
@@ -11,6 +11,17 @@ const InkSpace = () => {
     content: "",
     author: ""
   });
+
+  useEffect(()=>{
+
+    if(actionData?.data.message == "Boom! Saved like a boss.") {
+      setFormData({
+        title: "",
+        category: "",
+        author:""
+      })
+    }
+  }, [actionData])
 
   const handleChange = (e) => {
     // alert("e.target.name: " + e.target.value);

@@ -14,6 +14,7 @@ export const AuthorWrite = async (title, category, content, author) => {
         return data;
     }
     catch (error) {
+        console.log(error, "error saving data")
         throw Error(error)
     }
 }

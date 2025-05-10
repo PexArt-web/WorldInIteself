@@ -7,7 +7,7 @@ const authorWrite = async (req, res) => {
         if (!data) {
             return res.status(400).json({ message: "unable to save data , Please try again" });
         }
-        res.status(201).json({ message: "data saved successfully", data });
+        res.status(201).json({ message: "Boom! Saved like a boss.", data });
         
     } catch (error) {
         res.status(400).json({ message: "Error saving data", error });
