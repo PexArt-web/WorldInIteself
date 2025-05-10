@@ -59,6 +59,7 @@ const InkSpace = () => {
             <option value="">Select Category</option>
             <option value="Good Morning">🌅 Good Morning</option>
             <option value="Good Night">🌙 Good Night</option>
+            <option value="Love Letters">💌 Love Letters</option>
             <option value="Motivation">🔥 Daily Motivation</option>
             <option value="Poems">📝 Poems</option>
             <option value="Birthday">🎂 Birthday Wishes</option>
