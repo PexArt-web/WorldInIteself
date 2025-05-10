@@ -14,7 +14,7 @@ const InkSpace = () => {
 
   useEffect(()=>{
 
-    if(actionData?.data.message == "Boom! Saved like a boss.") {
+    if(actionData?.data?.message == "Boom! Saved like a boss.") {
       setFormData({
         title: "",
         category: "",
