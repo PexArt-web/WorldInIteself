@@ -1,4 +1,5 @@
 import SharedButton from "@/Shared/SharedButton";
+import SharedInput from "@/Shared/SharedInput";
 import { useEffect, useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 
@@ -9,23 +10,21 @@ const InkSpace = () => {
     title: "",
     category: "",
     content: "",
-    author: ""
+    author: "",
   });
 
-  useEffect(()=>{
-
-    if(actionData?.data?.message) {
+  useEffect(() => {
+    if (actionData?.data?.message) {
       setFormData({
         title: "",
         category: "",
-        content:"",
-        author:""
-      })
+        content: "",
+        author: "",
+      });
     }
-  }, [actionData])
+  }, [actionData]);
 
   const handleChange = (e) => {
-    // alert("e.target.name: " + e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -40,15 +39,23 @@ const InkSpace = () => {
       <div className="max-w-2xl mx-auto bg-black/60 p-8 rounded-xl backdrop-blur-md shadow-2xl">
         <h2 className="text-3xl font-bold mb-6 text-center">🖋️ InkSpace</h2>
         <Form method="post" className="space-y-4">
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            className="w-full p-3 rounded bg-white/10 placeholder-white/70"
+          <p className="text-center text-lg font-semibold">
+            Write your letter and share it with the world!
+          </p>
+          <SharedInput
+            type={"text"}
+            name={"title"}
+            placeholder={"Please Enter Your Title"}
+            className={"w-full p-3 rounded bg-white/10 placeholder-white/70"}
             value={formData.title}
             onChange={handleChange}
-            required
+            required={true}
           />
+
+          <p className="text-center text-sm font-semibold">
+            Select a category for your letter
+          </p>
+
           <select
             name="category"
             className="w-full p-3 rounded bg-white/10 text-black"
@@ -74,15 +81,17 @@ const InkSpace = () => {
             onChange={handleChange}
             required
           />
-
-          <input
-            type="text"
-            name="author"
-            placeholder="crafted by"
-            className="w-full p-3 rounded bg-white/10 placeholder-white/70"
+          <p className="text-center text-sm font-semibold">
+            Add your name to the letter
+          </p>
+          <SharedInput
+            type={"text"}
+            name={"author"}
+            placeholder={"Please Enter Your Name or Author Name"}
+            className={"w-full p-3 rounded bg-white/10 placeholder-white/70"}
             value={formData.author}
             onChange={handleChange}
-            required
+            required={true}
           />
 
           <SharedButton
@@ -91,7 +100,9 @@ const InkSpace = () => {
               "w-full bg-pink-500 hover:bg-pink-600 transition p-3 rounded font-semibold"
             }
             disabled={navigation.state === "submitting"}
-            label={navigation.state === "submitting" ? "Submitting..." : "Submit"}
+            label={
+              navigation.state === "submitting" ? "Submitting..." : "Submit"
+            }
           />
 
           {actionData?.error && (
