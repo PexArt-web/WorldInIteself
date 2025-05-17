@@ -20,10 +20,11 @@ import Motivation from "./pages/Letters/Motivation";
 import Motherhood from "./pages/Letters/Motherhood";
 import Fatherhood from "./pages/Letters/Fatherhood";
 import LoveLetters from "./pages/Letters/LoveLetters";
+import { LetterLoader } from "./loaders/letterLoader";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<RootLayout />} loader = {LetterLoader}>
         <Route index element={<LandingPage />} />
         <Route path="letters/">
           <Route index element={<Letters />} />

@@ -5,10 +5,12 @@ const app = express();
 const cors = require("cors");
 const port = process.env.PORT;
 const authorRoute = require("../Routes/AuthorRoute");
+const lettersRoute = require("../Routes/lettersRoute");
 app.use(express.json());
 app.use(cors());
 
 app.use("/api", authorRoute);
+app.use("/api", lettersRoute);
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });

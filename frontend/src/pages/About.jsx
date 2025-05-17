@@ -1,3 +1,5 @@
+import Header from "./Component/Header";
+
 const About = () => {
   return (
     <div
@@ -7,6 +9,7 @@ const About = () => {
           "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
       }}
     >
+      <Header/>
       <div className="bg-black/60 backdrop-blur-sm p-10 rounded-xl max-w-4xl mx-auto text-center space-y-8">
         <h1 className="text-4xl font-extrabold tracking-wide">
           🌍 World in Itself

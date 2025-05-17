@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  //   const isHomePage = location.pathname === "/";
+  // const isHomePage = location.pathname === "/";
   const isLettersPage = location.pathname === "/letters";
   return (
     <header className="w-full max-w-4xl mx-auto flex justify-between items-center mb-12 ">
