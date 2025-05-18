@@ -20,22 +20,60 @@ import Motivation from "./pages/Letters/Motivation";
 import Motherhood from "./pages/Letters/Motherhood";
 import Fatherhood from "./pages/Letters/Fatherhood";
 import LoveLetters from "./pages/Letters/LoveLetters";
-import { LetterLoader } from "./loaders/letterLoader";
+import {
+  birthdayLoader,
+  fatherHoodLoader,
+  goodMorningLoader,
+  goodNightLoader,
+  LetterLoader,
+  loveLettersLoader,
+  motherHoodLoader,
+  motivationalLoader,
+  poemsLoader,
+} from "./loaders/letterLoader";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />} loader = {LetterLoader}>
+      <Route path="/" element={<RootLayout />} loader={LetterLoader}>
         <Route index element={<LandingPage />} />
         <Route path="letters/">
           <Route index element={<Letters />} />
-          <Route path="goodmorning" element={<GoodMorning />} />
-          <Route path="goodnight" element={<GoodNight />} />
-          <Route path="birthday" element={<Birthday />} />
-          <Route path="poems" element={<Poems />} />
-          <Route path="motivation" element={<Motivation />} />
-          <Route path="motherhood" element={<Motherhood />} />
-          <Route path="fatherhood" element={<Fatherhood />} />
-          <Route path="love-letters" element={<LoveLetters />} />
+          <Route
+            path="goodmorning"
+            element={<GoodMorning />}
+            loader={goodMorningLoader}
+          />
+          <Route
+            path="goodnight"
+            element={<GoodNight />}
+            loader={goodNightLoader}
+          />
+          <Route
+            path="birthday"
+            element={<Birthday />}
+            loader={birthdayLoader}
+          />
+          <Route path="poems" element={<Poems />} loader={poemsLoader} />
+          <Route
+            path="motivation"
+            element={<Motivation />}
+            loader={motivationalLoader}
+          />
+          <Route
+            path="motherhood"
+            element={<Motherhood />}
+            loader={motherHoodLoader}
+          />
+          <Route
+            path="fatherhood"
+            element={<Fatherhood />}
+            loader={fatherHoodLoader}
+          />
+          <Route
+            path="love-letters"
+            element={<LoveLetters />}
+            loader={loveLettersLoader}
+          />
         </Route>
         <Route path="about" element={<About />} />
         <Route
