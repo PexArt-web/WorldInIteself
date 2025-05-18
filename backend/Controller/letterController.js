@@ -22,7 +22,9 @@ const getAllLetters = async (req, res) => {
 
 const goodMorning = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Good Morning" });
+    const data = await Whisper.find({ category: "Good Morning" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -39,7 +41,9 @@ const goodMorning = async (req, res) => {
 
 const goodNight = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Good Night" });
+    const data = await Whisper.find({ category: "Good Night" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -56,7 +60,9 @@ const goodNight = async (req, res) => {
 
 const loveLetters = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Love Letters" });
+    const data = await Whisper.find({ category: "Love Letters" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -73,7 +79,9 @@ const loveLetters = async (req, res) => {
 
 const motherHood = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Motherhood" });
+    const data = await Whisper.find({ category: "Motherhood" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -90,7 +98,9 @@ const motherHood = async (req, res) => {
 
 const fatherHood = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Fatherhood" });
+    const data = await Whisper.find({ category: "Fatherhood" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -107,7 +117,9 @@ const fatherHood = async (req, res) => {
 
 const motivation = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Motivation" });
+    const data = await Whisper.find({ category: "Motivation" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -124,7 +136,9 @@ const motivation = async (req, res) => {
 
 const poems = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Poems" });
+    const data = await Whisper.find({ category: "Poems" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -141,7 +155,9 @@ const poems = async (req, res) => {
 
 const birthday = async (req, res) => {
   try {
-    const data = await Whisper.find({ category: "Birthday" });
+    const data = await Whisper.find({ category: "Birthday" }).sort({
+      createdAt: -1,
+    });
     if (!data) {
       return res
         .status(404)
@@ -156,7 +172,6 @@ const birthday = async (req, res) => {
   }
 };
 
-
 module.exports = {
   goodMorning,
   goodNight,
@@ -166,5 +181,5 @@ module.exports = {
   fatherHood,
   motivation,
   poems,
-  birthday
+  birthday,
 };
