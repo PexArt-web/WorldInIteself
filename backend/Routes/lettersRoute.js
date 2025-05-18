@@ -9,7 +9,7 @@ const {
   motivation,
   poems,
   birthday,
-} = require("../Controller/LettersController");
+} = require("../Controller/letterController");
 const router = express.Router();
 
 router.get("/all-letters", getAllLetters);

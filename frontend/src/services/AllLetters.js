@@ -38,13 +38,13 @@ export const getGoodMorning = async () => {
 
 export const getGoodNight = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/good-night", {
+    const response = await fetch("http://localhost:4000/api/good-night", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -57,13 +57,13 @@ export const getGoodNight = async () => {
 
 export const getLoveLetters = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/love-letters", {
+    const response = await fetch("http://localhost:4000/api/love-letters", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -76,13 +76,13 @@ export const getLoveLetters = async () => {
 
 export const getMotivation = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/motivation", {
+    const response = await fetch("http://localhost:4000/api/motivation", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not okay");
     }
@@ -95,13 +95,13 @@ export const getMotivation = async () => {
 
 export const getPoems = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/poems", {
+    const response = await fetch("http://localhost:4000/api/poems", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = data.json();
+    const data = response.json();
     if (!response.ok) {
       throw new Error("Network response not ok");
     }
@@ -114,13 +114,13 @@ export const getPoems = async () => {
 
 export const getMotherHood = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/mother-hood", {
+    const response = await fetch("http://localhost:4000/api/mother-hood", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not okay");
     }
@@ -133,13 +133,13 @@ export const getMotherHood = async () => {
 
 export const getFatherHood = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/father-hood", {
+    const response = await fetch("http://localhost:4000/api/father-hood", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not okay");
     }
@@ -152,13 +152,13 @@ export const getFatherHood = async () => {
 
 export const getBirthday = async () => {
   try {
-    const data = await fetch("http://localhost:4000/api/birthday", {
+    const response = await fetch("http://localhost:4000/api/birthday", {
       method: "GET",
       headers: {
         "Content-Type": "application",
       },
     });
-    const response = await data.json();
+    const data = await response.json();
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
