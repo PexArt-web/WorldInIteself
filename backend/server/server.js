@@ -12,7 +12,7 @@ app.use(cors());
 app.use("/api", authorRoute);
 app.use("/api", lettersRoute);
 app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
+  res.status(404).json({ message: "Requested Route not found" });
 });
 connectDB((err) => {
   if (err) {
