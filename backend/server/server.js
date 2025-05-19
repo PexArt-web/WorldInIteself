@@ -9,6 +9,8 @@ const lettersRoute = require("../Routes/lettersRoute");
 app.use(express.json());
 app.use(cors());
 
+const { log } = console;
+
 app.use("/api", authorRoute);
 app.use("/api", lettersRoute);
 app.use((req, res) => {
@@ -16,11 +18,11 @@ app.use((req, res) => {
 });
 connectDB((err) => {
   if (err) {
-    console.log("Database connection failed:", err);
+    log("Database connection failed:", err);
   } else {
     app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
+      log(`Server is running on port ${port}`);
     });
-    console.log("Database connected successfully");
+    log("Database connected successfully");
   }
 });

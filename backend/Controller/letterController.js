@@ -10,7 +10,6 @@ const getAllLetters = async (req, res) => {
         .status(404)
         .json({ message: "No data found for this category" });
     }
-    console.log(data);
     res.status(200).json({ message: "Data fetched successfully", data: data });
   } catch (error) {
     console.error(error);
