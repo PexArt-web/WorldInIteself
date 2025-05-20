@@ -1,9 +1,46 @@
 import { Link } from "react-router-dom";
 import Header from "./Component/Header";
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.5,
+      ease: "easeInOut",
+      scale: {
+        stiffness: 28,
+        type: "spring",
+        bounce: 0.5,
+      },
+    },
+  },
+  whileHover: {
+    scale: 1.1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 300,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
+  },
+};
 
 const LandingPage = () => {
   return (
-    <div
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white relative"
       style={{
         backgroundImage:
@@ -24,6 +61,7 @@ const LandingPage = () => {
             notes, and sweet messages. Let your heart be touched, one word at a
             time.
           </p>
+
           <Link
             to="/letters"
             className="bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
@@ -36,7 +74,7 @@ const LandingPage = () => {
           © {new Date().getFullYear()} World In ItSelf. All rights reserved.
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
