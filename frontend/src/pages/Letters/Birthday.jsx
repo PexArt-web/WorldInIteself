@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const Birthday = () => {
   const birthdayData = useLoaderData();
@@ -18,13 +19,7 @@ const Birthday = () => {
           Messages
         </h1>
 
-        <Suspense
-          fallback={
-            <p className="text-pink-700 text-center text-lg font-semibold">
-              Loading birthday vibes... 🎉
-            </p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={birthdayData.birthday}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {

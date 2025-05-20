@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const Fatherhood = () => {
   const fatherHoodData = useLoaderData();
@@ -9,7 +10,7 @@ const Fatherhood = () => {
       className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-start py-12 px-6"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')",
+          "url('https://media.istockphoto.com/id/1468298490/photo/happy-father-son-and-daughter-walking-in-a-field-towards-nature-sunset.jpg?s=612x612&w=0&k=20&c=_AJgfF1NuMc1PYanU-iiWe4AlE0NJwvoBz5urcY8QQY=')",
       }}
     >
       <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl px-10 py-12 max-w-2xl w-full">
@@ -17,13 +18,7 @@ const Fatherhood = () => {
           <span className="text-5xl animate-bounce">👨‍👧‍👦</span> Fatherhood
         </h1>
 
-        <Suspense
-          fallback={
-            <p className="text-blue-700 text-center text-lg font-semibold">
-              Loading wisdom and dad jokes...
-            </p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={fatherHoodData.fatherHood}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {

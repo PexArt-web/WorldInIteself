@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const LoveLetters = () => {
   const loveData = useLoaderData();
@@ -10,20 +11,15 @@ const LoveLetters = () => {
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1517867065801-e20f409696b0')",
-      }}n
+      }}
+      n
     >
       <div className="bg-white/0 backdrop-blur-md rounded-2xl shadow-2xl px-10 py-12 max-w-2xl w-full">
         <h1 className="text-4xl font-extrabold text-rose-700 mb-10 text-center flex items-center justify-center gap-3 drop-shadow-lg">
           <span className="animate-pulse text-5xl">💖</span> Love Letters
         </h1>
 
-        <Suspense
-          fallback={
-            <p className="text-rose-600 text-center text-lg font-semibold">
-              Loading your love letters...
-            </p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={loveData.loveLetters}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {

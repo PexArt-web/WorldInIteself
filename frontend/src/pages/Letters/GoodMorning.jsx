@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const GoodMorning = () => {
   const morningData = useLoaderData();
@@ -17,13 +18,7 @@ const GoodMorning = () => {
           ☀️ Good Morning!
         </h1>
 
-        
-
-        <Suspense
-          fallback={
-            <p className="text-gray-600 text-lg">Loading sunshine...</p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={morningData.goodMorning}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {

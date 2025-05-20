@@ -9,19 +9,19 @@ const NotFound = () => {
           "url('https://media.istockphoto.com/id/1067394416/photo/http-404-error-not-found-page.jpg?b=1&s=612x612&w=0&k=20&c=J-pg2AF8Ke1UhDDu97xeV8GaB6s594yCeF1yI36qMug=')",
       }}
     >
-      <div className="bg-black/60 min-h-screen flex flex-col items-center justify-center px-6 py-12 text-center">
-        <h1 className="text-4xl font-bold mb-6">
-          Sorry, the page you were looking for was not found
+      <div className="bg-black/70 backdrop-blur-sm min-h-screen flex flex-col items-center justify-center px-8 py-16 max-w-lg text-center rounded-lg shadow-xl">
+        <h1 className="text-5xl font-extrabold mb-6 drop-shadow-lg">
+          404 — Page Not Found
         </h1>
-        <p className="text-lg text-white/80 mb-8">
-          Oops, it seems like the page doesn't exist anymore or was moved to a
-          new location.
+        <p className="text-xl text-white/80 mb-10 leading-relaxed">
+          Oops! The page you're looking for doesn’t exist or has been moved.
+          But don't worry, you can always go back home.
         </p>
         <Link
           to="/"
-          className="bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-full text-lg font-medium shadow-lg transition"
+          className="inline-block bg-pink-600 hover:bg-pink-700 transition-colors duration-300 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105"
         >
-          Return to Home
+          Return Home
         </Link>
       </div>
     </div>

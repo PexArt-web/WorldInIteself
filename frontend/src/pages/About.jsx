@@ -3,67 +3,75 @@ import Header from "./Component/Header";
 const About = () => {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-16"
+      className="min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-16 relative"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
       }}
     >
-      <Header/>
-      <div className="bg-black/60 backdrop-blur-sm p-10 rounded-xl max-w-4xl mx-auto text-center space-y-8">
-        <h1 className="text-4xl font-extrabold tracking-wide">
+      <div className="absolute inset-0 bg-black/40  bg-opacity-70 z-0 backdrop-blur-md" />
+      <div className="relative z-10 max-w-5xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl px-8 md:px-16 py-14 text-center shadow-2xl border border-white/10 space-y-8 animate-fadeIn">
+        <Header />
+        <h1 className="text-5xl font-extrabold tracking-tight text-pink-100 drop-shadow">
           🌍 World in Itself
         </h1>
-        <p className="text-lg text-white/90">
-          <strong>World in Itself</strong> is more than just a collection of
-          letters. It's a journey through the heart, a canvas of emotions, and a
-          tapestry of words that resonate with our deepest feelings. A quiet
-          corner of the internet where words find their way into hearts it's a
-          sanctuary for words that matter. A place where love speaks softly,
-          mornings start warmly, and nights end with peace in the heart.
-        </p>
-        <p className="text-lg text-white/90">
-          This platform was created to rekindle the charm of meaningful messages
-          from <em>romantic notes</em> to <em>birthday wishes</em>,{" "}
-          <em>daily motivation</em>, and poetic whispers that remind us we're
-          human, and we feel.
-        </p>
-        <p className="text-lg text-white/90">
-          Built for lovers, dreamers, and soul connectors, this space was born
-          out of a desire to bring back the beauty of written affection. Whether
-          it's a gentle <em>good morning</em>, a <em>warm goodnight</em>, a{" "}
-          <em>heartfelt birthday wish</em>, or just a <em>poem </em> that says
-          what your heart can’t. It’s not just about words it’s about
-          connection.
-        </p>
-        <p className="text-lg text-white/90">
-          Every piece you’ll find here is a small universe of emotion. Because
-          sometimes, the right words <em>are a world in themselves</em>.
+
+        <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+          <strong className="text-pink-200">World in Itself</strong> isn’t just
+          a collection of letters — it’s a sanctuary for emotions, a space where
+          the unspoken is said, and the heart has its own language. Here, every
+          word is chosen with care, every sentence a reflection of love, loss,
+          healing, and hope.
         </p>
 
-        <div className="text-md max-w-2xl space-y-6 text-white/85">
+        <p className="text-lg md:text-xl text-white/85 leading-relaxed">
+          Created to rekindle the soul-touching charm of written words — from{" "}
+          <em>romantic whispers</em> to <em>birthday warmth</em>,{" "}
+          <em>midday encouragements</em>, and <em>poetic stargazing</em>. It’s a
+          place where letters aren’t just read — they’re felt.
+        </p>
+
+        <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+          For lovers, feelers, and dreamers — this is for you. Whether it's a{" "}
+          <em>gentle good morning</em>, a <em>midnight poem</em>, or a{" "}
+          <em>message that knows exactly how you feel</em>... this space was
+          born for connection.
+        </p>
+
+        <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+          Every piece you find here is a mini-universe of emotion. Because
+          sometimes, the right words are more than just words — they’re a whole
+          world in themselves.
+        </p>
+
+        <div className="border-t border-white/20 pt-8 text-white/80 space-y-6 text-sm md:text-base font-light">
           <p>
-            ✍🏽 <span className="font-semibold">Words by Toqieso</span>
-            <br />A lover of love, storyteller by heart, and pen behind the
-            passion. Toqieso writes from the soul for anyone who still believes
-            in the timeless magic of love notes.
+            ✍🏽{" "}
+            <span className="font-semibold text-pink-200">
+              Words by Toqieso
+            </span>
+            <br />
+            Lover of love. Storyteller by nature. Toqieso writes from the soul
+            for those who still believe in handwritten magic.
           </p>
 
           <p>
-            💻 <span className="font-semibold">Crafted by Pex</span>
+            💻{" "}
+            <span className="font-semibold text-pink-200">Crafted by Pex</span>
             <br />
-            Built with precision and care by Tech artisan Pex, who turned vision
-            into code and made sure every pixel feels like poetry.
+            Designed and developed with heart by digital artisan Pex — the hands
+            behind the code, and the mind that turned this dream into digital
+            reality.
           </p>
         </div>
 
-        <p className="text-lg text-white/90">
-          Thank you for being a part of this journey. We hope you find the words
-          that resonate with your heart.
+        <p className="text-lg md:text-xl text-white/85 italic mt-6">
+          Thank you for being part of this journey. We hope you find the words
+          that speak to your soul.
         </p>
 
-        <h2 className="text-xl font-semibold mt-4 italic text-pink-200">
-          "Where every word is a universe."
+        <h2 className="text-2xl font-semibold italic text-pink-300 mt-4">
+          “Where every word is a universe.”
         </h2>
       </div>
     </div>

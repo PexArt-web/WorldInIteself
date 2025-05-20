@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const Motivation = () => {
   const motivationData = useLoaderData();
@@ -14,16 +15,10 @@ const Motivation = () => {
     >
       <div className="bg-black/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 sm:p-12 max-w-3xl w-full border border-white/20">
         <h1 className="text-5xl font-extrabold text-center text-white mb-10 flex items-center justify-center gap-3 tracking-wide drop-shadow-md">
-           💪 Motivation
+          💪 Motivation
         </h1>
 
-        <Suspense
-          fallback={
-            <p className="text-white text-center text-lg font-medium animate-pulse">
-              Loading motivation...
-            </p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={motivationData.motivational}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {

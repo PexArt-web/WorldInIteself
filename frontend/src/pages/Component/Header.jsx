@@ -2,22 +2,67 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  // const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === "/";
   const isLettersPage = location.pathname === "/letters";
+  const isAboutPage = location.pathname === "/about";
   return (
-    <header className="w-full max-w-4xl mx-auto flex justify-between items-center mb-12 ">
-      <h1 className="text-3xl font-bold tracking-wide">World In ItSelf</h1>
-      <nav className="space-x-6 text-lg">
-        {isLettersPage ? (
-          <Link to="/" className="hover:text-pink-300 transition">
-            Home
-          </Link>
-        ) : (
-          <Link to="letters"> Letters </Link>
+    <header className="w-full max-w-6xl mx-auto flex justify-between items-center mb-16">
+      <h1 className="text-3xl md:text-4xl font-bold tracking-wider text-pink-200">
+        World In ItSelf
+      </h1>
+      <nav className="space-x-6 text-lg font-medium">
+        {isHomePage && (
+          <>
+            <Link
+              to="/letters"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              Letters
+            </Link>
+
+            <Link
+              to="/about"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              About
+            </Link>
+          </>
         )}
-        <Link to="/about" className="hover:text-pink-300 transition">
-          About
-        </Link>
+
+        {isLettersPage && (
+          <>
+            <Link
+              to="/"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              About
+            </Link>
+          </>
+        )}
+
+        {isAboutPage && (
+          <>
+            <Link
+              to="/"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              Home
+            </Link>
+
+            <Link
+              to="/letters"
+              className="hover:text-pink-400 transition duration-200"
+            >
+              Letters
+            </Link>
+          </>
+        )}
       </nav>
     </header>
   );

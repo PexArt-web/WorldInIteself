@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
+import SuspenseFallback from "../Component/SuspenseFallback";
 
 const GoodNight = () => {
   const nightData = useLoaderData();
@@ -14,20 +15,14 @@ const GoodNight = () => {
     >
       <div className="bg-black/70 rounded-2xl p-10 max-w-md w-full shadow-lg">
         <h1 className="text-5xl font-extrabold text-indigo-300 text-center mb-10 drop-shadow-lg">
-         🌕Good Night
+          🌕Good Night
         </h1>
 
         <p className="text-center italic mb-8 text-indigo-200 drop-shadow">
           "The darker the night, the brighter the stars." ✨
         </p>
 
-        <Suspense
-          fallback={
-            <p className="text-indigo-200 text-center">
-              Restoring your data...
-            </p>
-          }
-        >
+        <Suspense fallback={<SuspenseFallback />}>
           <Await resolve={nightData.goodNight}>
             {(resolvedData) => {
               if (resolvedData.data.length === 0) {
@@ -61,7 +56,3 @@ const GoodNight = () => {
 };
 
 export default GoodNight;
-
-///
-
-// import { Suspense } from "react";
