@@ -1,8 +1,38 @@
 import Header from "./Component/Header";
+import { motion } from "framer-motion";
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.95,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.95,
+    y: -40,
+    transition: {
+      duration: 0.6,
+      ease: "easeIn",
+    },
+  },
+};
 
 const About = () => {
   return (
-    <div
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-16 relative"
       style={{
         backgroundImage:
@@ -12,8 +42,8 @@ const About = () => {
       <div className="absolute inset-0 bg-black/40  bg-opacity-70 z-0 backdrop-blur-md" />
       <div className="relative z-10 max-w-5xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl px-8 md:px-16 py-14 text-center shadow-2xl border border-white/10 space-y-8 animate-fadeIn">
         <Header />
-        <h1 className="text-5xl font-extrabold tracking-tight text-pink-100 drop-shadow">
-          🌍 World in Itself
+        <h1 className="text-5xl font-extrabold tracking-tight text-pink-100 drop-shadow ">
+          <span className="inline-block animate-spin">🌍</span> World in Itself
         </h1>
 
         <p className="text-lg md:text-xl text-white/90 leading-relaxed">
@@ -74,7 +104,7 @@ const About = () => {
           “Where every word is a universe.”
         </h2>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

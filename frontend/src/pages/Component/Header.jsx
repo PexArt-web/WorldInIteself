@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const headerVariants = {
   hidden: {

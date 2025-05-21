@@ -1,12 +1,42 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "../Component/Header";
+import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.98,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+      delayChildren: 0.1,
+      staggerChildren: 0.05,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    y: -20,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
 const Letters = () => {
-  const location = useLocation();
-  console.log(location.pathname, "path name");
   return (
-    <div
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white"
       style={{
         backgroundImage:
@@ -118,7 +148,7 @@ const Letters = () => {
           </Link>
         </section>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

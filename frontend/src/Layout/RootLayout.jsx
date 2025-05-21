@@ -1,13 +1,14 @@
-import { Outlet, useLoaderData } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Outlet, useLocation } from "react-router-dom";
 
 const RootLayout = () => {
-  const letterData = useLoaderData();
+  const location = useLocation();
   return (
-    <div>
-      <main>
-        <Outlet context={{ letterData }} />
+    <AnimatePresence mode="wait">
+      <main key={location.pathname}>
+        <Outlet />
       </main>
-    </div>
+    </AnimatePresence>
   );
 };
 

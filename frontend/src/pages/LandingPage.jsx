@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "./Component/Header";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: {
@@ -28,10 +28,7 @@ const containerVariants = {
       stiffness: 300,
     },
   },
-  exit: {
-    x: "-100vw",
-    transition: { ease: "easeInOut" },
-  },
+ 
 };
 
 const LandingPage = () => {
@@ -40,7 +37,6 @@ const LandingPage = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      exit="exit"
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white relative"
       style={{
         backgroundImage:
