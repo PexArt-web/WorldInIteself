@@ -4,7 +4,7 @@ const containerVariants = {
   hidden: {
     opacity: 0,
     scale: 0.95,
-    y: 40,
+    y: 80,
   },
   visible: {
     opacity: 1,

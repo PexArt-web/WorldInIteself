@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Component/Header";
 import { motion } from "framer-motion";
+import { lettersList } from "../Component/LettersList";
 
 const containerVariants = {
   hidden: {
     opacity: 0,
     scale: 0.98,
-    y: 40,
+    y: 80,
   },
   visible: {
     opacity: 1,
@@ -16,8 +17,9 @@ const containerVariants = {
     transition: {
       duration: 0.6,
       ease: "easeInOut",
+      when: "beforeChildren",
       delayChildren: 0.1,
-      staggerChildren: 0.05,
+      staggerChildren: 0.15,
     },
   },
   exit: {
@@ -27,6 +29,18 @@ const containerVariants = {
     transition: {
       duration: 0.5,
       ease: "easeInOut",
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
     },
   },
 };
@@ -55,97 +69,18 @@ const Letters = () => {
         </main>
 
         <section className="w-full max-w-5xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
-          <Link
-            to="goodmorning"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">
-              🌅 Good Morning Messages
-            </h3>
-            <p className="text-sm text-white/80">
-              Start your day with warmth and positivity — browse sweet good
-              morning wishes perfect for sending to someone special.
-            </p>
-          </Link>
-
-          <Link
-            to="goodnight"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">🌙 Goodnight Notes</h3>
-            <p className="text-sm text-white/80">
-              End the night with love — thoughtful messages to bring peace,
-              comfort, and connection before bed.
-            </p>
-          </Link>
-
-          <Link
-            to="love-letters"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">💌 Love Letters</h3>
-            <p className="text-sm text-white/80">
-              Deep, meaningful letters to express emotions, appreciation, and
-              affection. Send one or simply read for inspiration.
-            </p>
-          </Link>
-
-          <Link
-            to="motivation"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">💪 Daily Motivation</h3>
-            <p className="text-sm text-white/80">
-              find the drive and enthusiasm to tackle your daily tasks and
-              goals. staying focused and positive, even when things get tough.
-            </p>
-          </Link>
-
-          <Link
-            to="birthday"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">
-              🎂 Birthday Wishes and Messages
-            </h3>
-            <p className="text-sm text-white/80">
-              send warm thoughts and good vibes to someone on their special day!
-            </p>
-          </Link>
-
-          <Link
-            to="fatherhood"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">👨‍👧‍👦 Fatherhood</h3>
-            <p className="text-sm text-white/80">
-              Sharing words of wisdom, love, and appreciation for fathers. To
-              reflect joys, challenges, and importance of a father's role.
-            </p>
-          </Link>
-
-          <Link
-            to="motherhood"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">👩‍👧‍👦 Motherhood</h3>
-            <p className="text-sm text-white/80">
-              All about celebrating the love, strength, and unique experiences
-              of mothers. To capture the beauty and challenges of raising
-              children.
-            </p>
-          </Link>
-
-          <Link
-            to="poems"
-            className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-2">✨📜 Poems</h3>
-            <p className="text-sm text-white/80">
-              Heartfelt rhymes that might suit the moment and also soothe your
-              soul.
-            </p>
-          </Link>
+          {lettersList.map((item, index) => (
+            <motion.div
+              variants={childVariants}
+              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg"
+              key={index}
+            >
+              <Link to={item.path}>
+                <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-white/80">{item.description}</p>
+              </Link>
+            </motion.div>
+          ))}
         </section>
       </div>
     </motion.div>
