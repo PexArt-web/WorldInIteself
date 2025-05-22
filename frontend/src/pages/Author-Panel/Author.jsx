@@ -2,6 +2,35 @@ import SharedButton from "@/Shared/SharedButton";
 import SharedInput from "@/Shared/SharedInput";
 import { useEffect, useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const pageVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.4, ease: "easeIn" },
+  },
+};
+
+const formVariants = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { type: "spring", stiffness: 120, damping: 15 },
+  },
+};
+
+const messageVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+};
 
 const InkSpace = () => {
   const actionData = useActionData();
@@ -29,14 +58,21 @@ const InkSpace = () => {
   };
 
   return (
-    <div
+    <motion.div
       className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-10 text-white"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1600&q=80')",
       }}
+      variants={pageVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
     >
-      <div className="max-w-2xl mx-auto bg-black/60 p-8 rounded-xl backdrop-blur-md shadow-2xl">
+      <motion.div
+        className="max-w-2xl mx-auto bg-black/60 p-8 rounded-xl backdrop-blur-md shadow-2xl"
+        variants={formVariants}
+      >
         <h2 className="text-3xl font-bold mb-6 text-center">🖋️ InkSpace</h2>
         <Form method="post" className="space-y-4">
           <p className="text-center text-lg font-semibold">
@@ -94,32 +130,49 @@ const InkSpace = () => {
             required={true}
           />
 
-          <SharedButton
-            type={"submit"}
-            className={
-              "w-full bg-pink-500 hover:bg-pink-600 transition p-3 rounded font-semibold"
-            }
-            disabled={navigation.state === "submitting"}
-            label={
-              navigation.state === "submitting" ? "Submitting..." : "Submit"
-            }
-          />
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <SharedButton
+              type={"submit"}
+              className={
+                "w-full bg-pink-500 hover:bg-pink-600 transition p-3 rounded font-semibold"
+              }
+              disabled={navigation.state === "submitting"}
+              label={
+                navigation.state === "submitting" ? "Submitting..." : "Submit"
+              }
+            />
+          </motion.div>
 
           {actionData?.error && (
-            <p style={{ color: "red" }} className="text-center mt-2">
+            <motion.p
+              style={{ color: "red" }}
+              className="text-center mt-2"
+              variants={messageVariants}
+              initial="hidden"
+              animate="visible"
+            >
               {actionData.error === "Error: read ECONNRESET"
                 ? "Please check your network connection and try again"
                 : actionData.error}
-            </p>
+            </motion.p>
           )}
           {actionData?.data?.message && (
-            <p style={{ color: "green" }} className="text-center mt-2">
+            <motion.p
+              style={{ color: "green" }}
+              className="text-center mt-2"
+              variants={messageVariants}
+              initial="hidden"
+              animate="visible"
+            >
               {actionData.data.message}
-            </p>
+            </motion.p>
           )}
         </Form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

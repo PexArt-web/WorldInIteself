@@ -1,19 +1,71 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import SuspenseFallback from "../Component/SuspenseFallback";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.98,
+    y: 80,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+      when: "beforeChildren",
+      delayChildren: 0.1,
+      staggerChildren: 0.15,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.98,
+    y: -20,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 20,
+      duration: 2.4,
+      ease: "easeOut",
+    },
+  },
+};
 
 const GoodNight = () => {
   const nightData = useLoaderData();
 
   return (
-    <div
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center px-6 py-12"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80&sat=-100')",
       }}
     >
-      <div className="bg-black/70 rounded-2xl p-10 max-w-md w-full shadow-lg">
+      <motion.div
+        variants={containerVariants}
+        className="bg-black/70 rounded-2xl p-10 max-w-md w-full shadow-lg"
+      >
         <h1 className="text-5xl font-extrabold text-indigo-300 text-center mb-10 drop-shadow-lg">
           🌕Good Night
         </h1>
@@ -35,7 +87,8 @@ const GoodNight = () => {
                 );
               }
               return resolvedData.data.map((data) => (
-                <div
+                <motion.div
+                  variants={childVariants}
                   key={data._id}
                   className="bg-indigo-900/70 rounded-lg p-6 mb-6 shadow-md hover:shadow-indigo-500 transition-shadow cursor-default hover:scale-[1.02]"
                 >
@@ -45,13 +98,13 @@ const GoodNight = () => {
                   <p className="text-indigo-100 leading-relaxed">
                     {data.content}
                   </p>
-                </div>
+                </motion.div>
               ));
             }}
           </Await>
         </Suspense>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
