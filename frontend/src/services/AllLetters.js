@@ -27,4 +27,3 @@ export const getPoems = () => fetchFromAPI("/poems");
 export const getMotherHood = () => fetchFromAPI("/mother-hood");
 export const getFatherHood = () => fetchFromAPI("/father-hood");
 export const getBirthday = () => fetchFromAPI("/birthday");
-
