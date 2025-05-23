@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../Component/Header";
+import Header from "./Component/Header";
 import { motion } from "framer-motion";
-import { lettersList } from "../Component/LettersList";
+import { lettersList } from "./Component/LettersList";
 
 const containerVariants = {
   hidden: {

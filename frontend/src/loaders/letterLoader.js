@@ -1,5 +1,4 @@
 import {
-  getAllLetters,
   getBirthday,
   getFatherHood,
   getGoodMorning,
@@ -10,11 +9,6 @@ import {
   getPoems,
 } from "@/services/AllLetters";
 import { defer } from "react-router-dom";
-
-export const LetterLoader = () => {
-  const getLetters = getAllLetters();
-  return defer({ getLetters });
-};
 
 export const goodMorningLoader = () => {
   const goodMorning = getGoodMorning();

@@ -1,13 +1,13 @@
 import { AuthorAction } from "./handler/AuthorAction";
 import RootLayout from "./Layout/RootLayout";
-import NotFound from "./pages/404";
+import NotFound from "./pages/Errors/404";
 import About from "./pages/About";
 import Inkspace from "./pages/Author-Panel/Author";
 import LandingPage from "./pages/LandingPage";
 import Birthday from "./pages/Letters/Birthday";
 import GoodMorning from "./pages/Letters/GoodMorning";
 import GoodNight from "./pages/Letters/GoodNight";
-import Letters from "./pages/Letters/Letters";
+import Letters from "./pages/Letters";
 
 import {
   createBrowserRouter,
@@ -25,23 +25,23 @@ import {
   fatherHoodLoader,
   goodMorningLoader,
   goodNightLoader,
-  LetterLoader,
   loveLettersLoader,
   motherHoodLoader,
   motivationalLoader,
   poemsLoader,
 } from "./loaders/letterLoader";
-import { AnimatePresence } from "motion/react";
+import PageLoadError from "./pages/Errors/PageLoadError";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />} loader={LetterLoader}>
+      <Route path="/" element={<RootLayout />} errorElement={<PageLoadError />}>
         <Route index element={<LandingPage />} />
         <Route path="letters/">
           <Route index element={<Letters />} />
           <Route
             path="goodmorning"
             element={<GoodMorning />}
+            
             loader={goodMorningLoader}
           />
           <Route

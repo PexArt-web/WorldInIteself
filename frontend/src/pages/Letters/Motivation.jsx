@@ -61,7 +61,10 @@ const Motivation = () => {
           "url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1950&q=80')", // epic mountain sunrise
       }}
     >
-      <motion.div variants={containerVariants} className="bg-black/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 sm:p-12 max-w-3xl w-full border border-white/20">
+      <motion.div
+        variants={containerVariants}
+        className="bg-black/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 sm:p-12 max-w-3xl w-full border border-white/20"
+      >
         <h1 className="text-5xl font-extrabold text-center text-white mb-10 flex items-center justify-center gap-3 tracking-wide drop-shadow-md">
           💪 Motivation
         </h1>
@@ -80,16 +83,17 @@ const Motivation = () => {
               }
               return resolvedData.data.map((data) => (
                 <motion.div
-                variants={childVariants}
+                  variants={childVariants}
                   key={data._id}
                   className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-6 border border-gray-200 shadow-md transition hover:shadow-yellow-300"
                 >
-                  <h2 className="text-2xl font-semibold text-yellow-700 mb-2 text-center">
+                  <h2 className="text-2xl font-semibold text-yellow-700 mb-2 text-center font-title">
                     {data.title}
                   </h2>
                   <p className="text-gray-800 leading-relaxed text-lg whitespace-pre-wrap">
                     {data.content}
                   </p>
+                  <p className="font-script text-right">-{data.author}</p>
                 </motion.div>
               ));
             }}

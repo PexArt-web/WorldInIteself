@@ -63,13 +63,11 @@ const Poems = () => {
         backgroundImage: `url(${backgroundImageUrl})`,
       }}
     >
-      {/* Overlay */}
       <motion.div
         variants={containerVariants}
         className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-0"
       />
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-start pt-12 px-4">
         <h1 className="text-5xl font-serif text-white font-extrabold text-center mb-10 drop-shadow-lg tracking-wide">
           Poems
@@ -96,12 +94,13 @@ const Poems = () => {
                       key={data._id}
                       className="bg-white/80 backdrop-blur-md shadow-xl rounded-xl p-6 max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
                     >
-                      <h2 className="text-2xl font-serif font-semibold text-gray-900 mb-3">
+                      <h2 className="text-2xl font-serif font-semibold text-gray-900 mb-3 font-title">
                         {data.title}
                       </h2>
                       <p className="text-gray-700 whitespace-pre-line leading-relaxed">
                         {data.content}
                       </p>
+                      <p className="font-script text-right">-{data.author}</p>
                     </motion.div>
                   ))}
                 </div>

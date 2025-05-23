@@ -94,7 +94,7 @@ const GoodMorning = () => {
                   <p className="text-gray-700 leading-relaxed font-body">
                     {data.content}
                   </p>
-                  <p className="font-script">- written by Toqieso</p>
+                  <p className="font-script text-right">-{data.author}</p>
                 </motion.div>
               ));
             }}

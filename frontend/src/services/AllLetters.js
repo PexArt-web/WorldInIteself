@@ -1,24 +1,4 @@
-export const getAllLetters = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/all-letters",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return data;
-  } catch (error) {
-    console.log(error, "error fetching letters");
-    throw Error(error);
-  }
-};
+
 
 export const getGoodMorning = async () => {
   try {

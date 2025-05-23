@@ -92,12 +92,13 @@ const GoodNight = () => {
                   key={data._id}
                   className="bg-indigo-900/70 rounded-lg p-6 mb-6 shadow-md hover:shadow-indigo-500 transition-shadow cursor-default hover:scale-[1.02]"
                 >
-                  <h2 className="text-2xl font-semibold text-indigo-200 mb-2">
+                  <h2 className="text-2xl font-semibold text-indigo-200 mb-2 font-title">
                     {data.title}
                   </h2>
                   <p className="text-indigo-100 leading-relaxed">
                     {data.content}
                   </p>
+                  <p className="font-script text-right">-{data.author}</p>
                 </motion.div>
               ));
             }}

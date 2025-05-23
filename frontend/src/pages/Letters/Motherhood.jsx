@@ -94,12 +94,13 @@ const Motherhood = () => {
                       key={data._id}
                       className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-6 max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
                     >
-                      <h2 className="text-xl font-bold text-gray-900 mb-2">
+                      <h2 className="text-xl font-bold text-gray-900 mb-2 font-title">
                         {data.title}
                       </h2>
                       <p className="text-gray-700 leading-relaxed">
                         {data.content}
                       </p>
+                      <p className="font-script text-right">-{data.author}</p>
                     </motion.div>
                   ))}
                 </div>
