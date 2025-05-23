@@ -1,6 +1,8 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const AuthorWrite = async (title, category, content, author) => {
     try {
-        const response = await fetch("https://worldiniteself.onrender.com/api/author-write", {
+        const response = await fetch(`${API_BASE_URL}/author-write`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

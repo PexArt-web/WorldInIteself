@@ -1,41 +1,16 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-
-export const getGoodMorning = async () => {
+const fetchFromAPI = async (endpoint) => {
   try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/good-morning",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const data = await response.json();
     if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return data;
-  } catch (error) {
-    console.log(error, "error fetching letters");
-    throw Error(error);
-  }
-};
-
-export const getGoodNight = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/good-night",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error(data.message || "Network response was not ok");
     }
     return data;
   } catch (error) {
@@ -44,134 +19,12 @@ export const getGoodNight = async () => {
   }
 };
 
-export const getLoveLetters = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/love-letters",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
+export const getGoodMorning = () => fetchFromAPI("/good-morning");
+export const getGoodNight = () => fetchFromAPI("/good-night");
+export const getLoveLetters = () => fetchFromAPI("/love-letters");
+export const getMotivation = () => fetchFromAPI("/motivation");
+export const getPoems = () => fetchFromAPI("/poems");
+export const getMotherHood = () => fetchFromAPI("/mother-hood");
+export const getFatherHood = () => fetchFromAPI("/father-hood");
+export const getBirthday = () => fetchFromAPI("/birthday");
 
-export const getMotivation = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/motivation",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not okay");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
-
-export const getPoems = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/poems",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = response.json();
-    if (!response.ok) {
-      throw new Error("Network response not ok");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
-
-export const getMotherHood = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/mother-hood",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not okay");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
-
-export const getFatherHood = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/father-hood",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not okay");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
-
-export const getBirthday = async () => {
-  try {
-    const response = await fetch(
-      "https://worldiniteself.onrender.com/api/birthday",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application",
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw Error(error);
-  }
-};
